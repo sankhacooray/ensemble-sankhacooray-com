@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ensemble — Sankha Cooray · a music journey</title>
+<meta name="description" content="Keyboardist, arranger, faculty-orchestra lead — now exploring HCI research toward music. Performances, compositions, and computer-music experiments.">
+<link rel="canonical" href="https://ensemble.sankhacooray.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ensemble">
+<meta property="og:title" content="ensemble — Sankha Cooray · a music journey">
+<meta property="og:description" content="Keyboardist, arranger, faculty-orchestra lead — now exploring HCI research toward music.">
+<meta property="og:url" content="https://ensemble.sankhacooray.com/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ensemble — Sankha Cooray · a music journey">
+<meta name="twitter:description" content="Keyboardist, arranger, faculty-orchestra lead — now exploring HCI research toward music.">
+
+<meta name="theme-color" content="#0b0a0d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ensemble">
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b0a0d;
+  --surface: #16141b;
+  --surface2: #1e1b25;
+  --border: #2a2632;
+  --border-soft: #221f29;
+  --text: #f0ebe0;
+  --text-dim: #a09a8e;
+  --text-muted: #6a6356;
+  --gold: #d4a574;
+  --gold-dim: #a07d4f;
+  --gold-soft: rgba(212,165,116,0.08);
+  --cyan: #6bc3d6;
+  --cyan-dim: #4a8a99;
+  --cyan-soft: rgba(107,195,214,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --maxw: 1080px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(800px 400px at 20% -10%, rgba(212,165,116,0.06), transparent 60%),
+    radial-gradient(700px 500px at 100% 20%, rgba(107,195,214,0.04), transparent 60%);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── Header ──────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(11,10,13,0.7);
+  border-bottom: 1px solid var(--border-soft);
+}
+.site-header .inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.brand-mark {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  color: var(--gold);
+  letter-spacing: -0.5px;
+}
+.brand-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.nav a:hover { color: var(--text); }
+
+@media (max-width: 640px) {
+  .nav { display: none; }
+}
+
+/* ─── Hero ────────────────────────────────────────────── */
+.hero {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 120px 28px 80px;
+}
+.hero .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+.hero .lede {
+  font-size: 19px;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+.hero .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.hero .meta span::before {
+  content: "◦";
+  margin-right: 10px;
+  color: var(--gold-dim);
+}
+
+/* ─── Section base ────────────────────────────────────── */
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 72px 28px;
+  border-top: 1px solid var(--border-soft);
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+.section h2 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: -0.5px;
+}
+
+/* ─── About ───────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.about-grid p {
+  font-size: 16px;
+  color: var(--text-dim);
+}
+.about-grid p + p { margin-top: 16px; }
+.about-grid strong { color: var(--text); font-weight: 500; }
+.about-grid .accent { color: var(--gold); }
+
+@media (max-width: 720px) {
+  .about-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ─── Timeline ────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--cyan) 100%);
+  opacity: 0.4;
+}
+.t-item {
+  position: relative;
+  padding-bottom: 36px;
+}
+.t-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--gold-dim);
+}
+.t-item.research::before {
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--cyan-dim);
+}
+.t-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.t-item.research .t-year { color: var(--cyan); }
+.t-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.t-body {
+  font-size: 14px;
+  color: var(--text-dim);
+  max-width: 560px;
+}
+
+/* ─── Card grids ──────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+.card .role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.card .role.cool { color: var(--cyan); }
+.card h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+.card .where {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.card p {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.card .link {
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.card .link.cool { color: var(--cyan); }
+.card .link::after { content: "→"; transition: transform 0.2s; }
+.card .link:hover::after { transform: translateX(3px); }
+.card .link.muted {
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.card .link.muted::after { content: "·"; }
+
+/* ─── Tools ───────────────────────────────────────────── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.tool {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tool:hover {
+  border-color: var(--gold-dim);
+  background: var(--surface2);
+}
+.tool .glyph {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.tool .body { flex: 1; min-width: 0; }
+.tool .name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.tool .role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.note {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+/* ─── Research section ───────────────────────────────── */
+.research-intro {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 680px;
+  margin-bottom: 36px;
+}
+.research-intro .cyan { color: var(--cyan); }
+
+/* ─── Footer ──────────────────────────────────────────── */
+footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 60px 28px 80px;
+  border-top: 1px solid var(--border-soft);
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: baseline;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+footer .mark {
+  font-family: 'Instrument Serif', serif;
+  color: var(--gold);
+  font-size: 20px;
+}
+footer .links {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+}
+footer .links a:hover { color: var(--text); }
+
+/* ─── Tag ─────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+.tag.cool {
+  border-color: var(--cyan-dim);
+  color: var(--cyan);
+  background: var(--cyan-soft);
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="brand">
+      <span class="brand-mark">ensemble</span>
+      <span class="brand-tag">sankha cooray</span>
+    </div>
+    <nav class="nav">
+      <a href="#about">about</a>
+      <a href="#journey">journey</a>
+      <a href="#stage">stage</a>
+      <a href="#studio">studio</a>
+      <a href="#research">research</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">a music journey · 2013 — present</div>
+  <h1>People, instruments,<br>and a little bit of <em>code</em>.</h1>
+  <p class="lede">
+    Keyboardist by hand, arranger by habit, faculty-orchestra lead by accident — now sneaking music
+    into HCI research, one sensor at a time.
+  </p>
+  <div class="meta">
+    <span>Colombo / Singapore</span>
+    <span>part-time enthusiast</span>
+    <span>occasionally near-professional</span>
+  </div>
+</section>
+
+<!-- ─── ABOUT ───────────────────────────────────────────── -->
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <h2>About</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p>
+        Music has been the quiet thread under everything I do. I play <strong>keyboard instruments</strong> —
+        sometimes near-professional, mostly as a hobby — and have spent more late nights than I should admit
+        on chord voicings, re-harmonisations, and the small joy of an arrangement that finally
+        <em>sits right</em>.
+      </p>
+      <p>
+        From 2013 to 2015 I led the <strong>Faculty Orchestra at the University of Sri Jayewardenepura</strong>,
+        and performed in concerts across both university auditoriums and the largest theatres in Sri Lanka.
+      </p>
+    </div>
+    <div>
+      <p>
+        Today I'm a part-time enthusiast with a new question:
+        <strong class="accent">what happens when computers join the ensemble?</strong>
+      </p>
+      <p>
+        My current work explores <strong>HCI research toward music</strong> — embodied interaction,
+        gesture-driven instruments, and computer-based composition tools. Some experiments live in
+        this workspace; more are on the way.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── JOURNEY ─────────────────────────────────────────── -->
+<section class="section" id="journey">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2>The Journey</h2>
+  </div>
+  <div class="timeline">
+
+    <div class="t-item">
+      <div class="t-year">2013</div>
+      <div class="t-title">Faculty Orchestra — University of Sri Jayewardenepura</div>
+      <p class="t-body">
+        Joined as keyboardist, eventually leading the ensemble. Learned more about
+        cueing, dynamics, and people than any single instrument could teach.
+      </p>
+    </div>
+
+    <div class="t-item">
+      <div class="t-year">2013 — 2015</div>
+      <div class="t-title">University concerts &amp; arrangements</div>
+      <p class="t-body">
+        Multiple performances across the university circuit. Began writing chord works and
+        creative arrangements for the orchestra's pieces — finding the voicing that made
+        a familiar song feel new.
+      </p>
+    </div>
+
+    <div class="t-item">
+      <div class="t-year">2014 — 2015</div>
+      <div class="t-title">Sisi Arundathee · BMICH</div>
+      <p class="t-body">
+        Performed in <em>Sisi Arundathee</em>, an annual concert held at BMICH —
+        one of the largest music theatres in Sri Lanka.
+      </p>
+    </div>
+
+    <div class="t-item">
+      <div class="t-year">2015</div>
+      <div class="t-title">Live MIDI tone-driven keyboard performance</div>
+      <p class="t-body">
+        An early HCI moment: a university concert where the keyboard's tones were
+        driven live by MIDI routing rather than the instrument's onboard voices.
+        In retrospect, this was where the research instinct started.
+      </p>
+    </div>
+
+    <div class="t-item research">
+      <div class="t-year">2024 — present</div>
+      <div class="t-title">HCI experiments toward music</div>
+      <p class="t-body">
+        Returning to music with a computer-science lens. Building embodied
+        instruments, gesture-driven arrangements, and small studies of how
+        humans and machines can perform together.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── STAGE ───────────────────────────────────────────── -->
+<section class="section" id="stage">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <h2>On Stage</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="role">annual · BMICH</div>
+      <h3>Sisi Arundathee</h3>
+      <div class="where">Bandaranaike Memorial International Conference Hall, Colombo</div>
+      <p>
+        Performed as a keyboardist in this annual flagship concert — staged at one of
+        Sri Lanka's largest performing-arts venues.
+      </p>
+      <span class="link muted">media coming soon</span>
+    </div>
+
+    <div class="card">
+      <div class="role">annual · USJ</div>
+      <h3>Sathsara Dehena</h3>
+      <div class="where">University of Sri Jayewardenepura auditorium</div>
+      <p>
+        Annual university concert, performed with the faculty orchestra across multiple
+        years (2013 – 2015).
+      </p>
+      <span class="link muted">media coming soon</span>
+    </div>
+
+    <div class="card">
+      <div class="role">2015 · experimental</div>
+      <h3>Live MIDI keyboard set</h3>
+      <div class="where">University concert</div>
+      <p>
+        A keyboard performance where tones were driven live by routed MIDI signals
+        — an early step toward the HCI work that came later.
+      </p>
+      <span class="link muted">recording coming</span>
+    </div>
+
+  </div>
+
+  <p class="note">
+    Recordings and programme notes from these concerts will be added here as they're
+    digitised and cleared.
+  </p>
+</section>
+
+<!-- ─── STUDIO ──────────────────────────────────────────── -->
+<section class="section" id="studio">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2>In the Studio</h2>
+  </div>
+
+  <p class="research-intro">
+    Composition, sequencing, arrangement, and mixing — built up across years of
+    home-studio experiments. The tools shifted; the chord-work instinct stayed.
+  </p>
+
+  <div class="tools-grid">
+    <a class="tool" href="https://www.image-line.com/fl-studio/" target="_blank" rel="noopener">
+      <div class="glyph">FL</div>
+      <div class="body">
+        <div class="name">FL Studio</div>
+        <div class="role">composition · sequencing</div>
+      </div>
+    </a>
+    <a class="tool" href="https://www.reasonstudios.com/" target="_blank" rel="noopener">
+      <div class="glyph">R</div>
+      <div class="body">
+        <div class="name">Propellerhead Reason</div>
+        <div class="role">synthesis · rack routing</div>
+      </div>
+    </a>
+    <a class="tool" href="https://www.adobe.com/products/audition.html" target="_blank" rel="noopener">
+      <div class="glyph">Au</div>
+      <div class="body">
+        <div class="name">Adobe Audition</div>
+        <div class="role">assembly · mastering</div>
+      </div>
+    </a>
+    <a class="tool" href="https://www.steinberg.net/technology/" target="_blank" rel="noopener">
+      <div class="glyph">♪</div>
+      <div class="body">
+        <div class="name">VST instruments &amp; effects</div>
+        <div class="role">sound design</div>
+      </div>
+    </a>
+  </div>
+
+  <p class="note">
+    Brand names are linked to their official sites. Logos &amp; press assets can be
+    swapped in later if needed.
+  </p>
+</section>
+
+<!-- ─── RESEARCH ────────────────────────────────────────── -->
+<section class="section" id="research">
+  <div class="section-head">
+    <span class="section-num">05</span>
+    <h2>Music × HCI</h2>
+    <span class="tag cool">ongoing</span>
+  </div>
+
+  <p class="research-intro">
+    Lately the question has shifted from <em>"what should we play?"</em> to
+    <span class="cyan"><em>"how should we play it together with machines?"</em></span>
+    These are open experiments — small, hands-on, sometimes embarrassing,
+    occasionally delightful.
+  </p>
+
+  <div class="card-grid">
+
+    <a class="card" href="https://eo.sankhacooray.com/" target="_blank" rel="noopener">
+      <div class="role cool">experiment · 01</div>
+      <h3>Embodied Orchestra</h3>
+      <div class="where">eo.sankhacooray.com</div>
+      <p>
+        A gesture-driven mini-orchestra in the browser — theremin, bow,
+        and scale-banded instruments controlled by the body.
+      </p>
+      <span class="link cool">visit</span>
+    </a>
+
+    <div class="card">
+      <div class="role cool">slot · reserved</div>
+      <h3>More experiments</h3>
+      <div class="where">coming to this page</div>
+      <p>
+        Additional music × HCI projects from the workspace will land here as
+        they reach a state worth sharing.
+      </p>
+      <span class="link muted">to be added</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <span class="mark">ensemble</span>
+  <span>&copy; 2026 Sankha Cooray · a music journey, in progress</span>
+  <div class="links">
+    <a href="https://sankhacooray.com" target="_blank" rel="noopener">main site</a>
+    <a href="https://eo.sankhacooray.com" target="_blank" rel="noopener">eo</a>
+  </div>
+</footer>
+
+</body>
+</html>
