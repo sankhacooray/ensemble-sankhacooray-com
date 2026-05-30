@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="0.15" cy="0.1" r="1">
+      <stop offset="0" stop-color="#23182a"/>
+      <stop offset="0.6" stop-color="#0b0a0d"/>
+    </radialGradient>
+    <radialGradient id="cyanglow" cx="0.9" cy="0.95" r="0.6">
+      <stop offset="0" stop-color="#6bc3d6" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#6bc3d6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldglow" cx="0.2" cy="0.15" r="0.5">
+      <stop offset="0" stop-color="#d4a574" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#d4a574" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3b988"/>
+      <stop offset="1" stop-color="#a07d4f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#goldglow)"/>
+  <rect width="1200" height="630" fill="url(#cyanglow)"/>
+
+  <!-- top-left brand -->
+  <g transform="translate(80, 92)">
+    <circle cx="0" cy="-8" r="6" fill="#d4a574"/>
+    <text x="20" y="0"
+          font-family="Georgia, 'Times New Roman', serif"
+          font-size="30" font-style="italic"
+          fill="#d4a574" letter-spacing="-0.5">ensemble</text>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="80" y="218"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="16" font-weight="500"
+        fill="#d4a574" letter-spacing="4">A MUSIC JOURNEY · 2013 — PRESENT</text>
+
+  <!-- hero headline -->
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#f0ebe0">
+    <text x="80" y="320" font-size="78" font-style="italic" letter-spacing="-2">People, instruments,</text>
+    <text x="80" y="408" font-size="78" font-style="italic" letter-spacing="-2">and a little bit of <tspan fill="url(#accent)">code</tspan>.</text>
+  </g>
+
+  <!-- subtitle -->
+  <text x="80" y="476"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="22" font-weight="400"
+        fill="#a09a8e">Keyboardist · arranger · faculty-orchestra lead · HCI explorer</text>
+
+  <!-- footer -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="80" y="558" font-size="16" fill="#6a6356" letter-spacing="2">SANKHA COORAY</text>
+    <text x="80" y="582" font-size="16" fill="#6a6356">ensemble.sankhacooray.com</text>
+  </g>
+
+  <!-- right-side abstract music staff -->
+  <g transform="translate(900, 200)" opacity="0.9">
+    <!-- five staff lines -->
+    <g stroke="#3a3340" stroke-width="1.5">
+      <line x1="0"   y1="0"   x2="220" y2="0"/>
+      <line x1="0"   y1="36"  x2="220" y2="36"/>
+      <line x1="0"   y1="72"  x2="220" y2="72"/>
+      <line x1="0"   y1="108" x2="220" y2="108"/>
+      <line x1="0"   y1="144" x2="220" y2="144"/>
+    </g>
+    <!-- gold notes (acoustic past) -->
+    <ellipse cx="22"  cy="108" rx="14" ry="10" fill="#d4a574" transform="rotate(-18 22 108)"/>
+    <line   x1="35"  y1="103" x2="35"  y2="40" stroke="#d4a574" stroke-width="2.5"/>
+    <ellipse cx="80"  cy="72"  rx="14" ry="10" fill="#d4a574" transform="rotate(-18 80 72)"/>
+    <line   x1="93"  y1="67"  x2="93"  y2="4"  stroke="#d4a574" stroke-width="2.5"/>
+    <ellipse cx="130" cy="90"  rx="14" ry="10" fill="#d4a574" transform="rotate(-18 130 90)"/>
+    <line   x1="143" y1="85"  x2="143" y2="22" stroke="#d4a574" stroke-width="2.5"/>
+    <!-- cyan note (digital future) -->
+    <ellipse cx="190" cy="54"  rx="14" ry="10" fill="#6bc3d6" transform="rotate(-18 190 54)"/>
+    <line   x1="203" y1="49"  x2="203" y2="-14" stroke="#6bc3d6" stroke-width="2.5"/>
+    <!-- beam connecting the cyan note to a small dot -->
+    <circle cx="203" cy="-14" r="3" fill="#6bc3d6"/>
+  </g>
+
+  <!-- subtle separator under headline -->
+  <line x1="80" y1="240" x2="180" y2="240"
+        stroke="#d4a574" stroke-width="2" opacity="0.6"/>
+</svg>
