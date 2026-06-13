@@ -390,6 +390,85 @@ a { color: inherit; text-decoration: none; }
   border-left: 2px solid var(--border);
 }
 
+/* ─── Compositions / video ───────────────────────────── */
+.composition {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.comp-meta .role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.comp-meta h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+}
+.comp-meta .where {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.comp-meta p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+.credits {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.credits li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.credits .credit-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.credits .credit-name {
+  font-size: 14px;
+  color: var(--text);
+}
+.credits .credit-name em { color: var(--gold); font-style: normal; }
+
+.composition + .card-grid { margin-top: 40px; }
+
+@media (max-width: 760px) {
+  .composition { grid-template-columns: 1fr; gap: 24px; }
+}
+
 /* ─── Research section ───────────────────────────────── */
 .research-intro {
   font-size: 17px;
@@ -457,6 +536,7 @@ footer .links a:hover { color: var(--text); }
       <a href="#about">about</a>
       <a href="#journey">journey</a>
       <a href="#stage">stage</a>
+      <a href="#compositions">compositions</a>
       <a href="#studio">studio</a>
       <a href="#research">research</a>
     </nav>
@@ -464,7 +544,7 @@ footer .links a:hover { color: var(--text); }
 </header>
 
 <section class="hero">
-  <div class="eyebrow">a music journey · 2013 — present</div>
+  <div class="eyebrow">a music journey · 2009 — present</div>
   <h1>People, instruments,<br>and a little bit of <em>code</em>.</h1>
   <p class="lede">
     Keyboardist by hand, arranger by habit, faculty-orchestra lead by accident — now sneaking music
@@ -576,9 +656,46 @@ footer .links a:hover { color: var(--text); }
     <h2>On Stage</h2>
   </div>
 
+  <div class="composition">
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/xC8n4EGagz0"
+        title="Band Introduction — Sisi Arundathee 2015"
+        loading="lazy"
+        allow="accelerated-download; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="comp-meta">
+      <div class="role">orchestra intro · live</div>
+      <h3>Band Introduction — Sisi Arundathee 2015</h3>
+      <div class="where">Sisi Arundathee · university concert · 2015</div>
+      <p>
+        The main performance track and orchestra introduction from <em>Sisi Arundathee</em>.
+        I directed the creative chord arrangements; the composition was a collective effort
+        by the ensemble.
+      </p>
+      <ul class="credits">
+        <li>
+          <span class="credit-role">creative chord arrangements · direction</span>
+          <span class="credit-name"><em>Sankha Cooray</em></span>
+        </li>
+        <li>
+          <span class="credit-role">composition</span>
+          <span class="credit-name">collective · the ensemble</span>
+        </li>
+        <li>
+          <span class="credit-role">orchestra lead</span>
+          <span class="credit-name">Selaka Bandara</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div class="card-grid">
 
-    <div class="card">
+    <a class="card" href="https://www.youtube.com/watch?v=xC8n4EGagz0" target="_blank" rel="noopener">
       <div class="role">annual · BMICH</div>
       <h3>Sisi Arundathee</h3>
       <div class="where">Bandaranaike Memorial International Conference Hall, Colombo</div>
@@ -586,8 +703,8 @@ footer .links a:hover { color: var(--text); }
         Performed as a keyboardist in this annual flagship concert — staged at one of
         Sri Lanka's largest performing-arts venues.
       </p>
-      <span class="link muted">media coming soon</span>
-    </div>
+      <span class="link">watch band intro</span>
+    </a>
 
     <div class="card">
       <div class="role">annual · USJ</div>
@@ -619,10 +736,66 @@ footer .links a:hover { color: var(--text); }
   </p>
 </section>
 
+<!-- ─── COMPOSITIONS ─────────────────────────────────────── -->
+<section class="section" id="compositions">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2>Compositions</h2>
+    <span class="tag">2009</span>
+  </div>
+
+  <div class="composition">
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/imdawOKGn14"
+        title="Nil Ahasa Sara — composition by Sankha Cooray (2009)"
+        loading="lazy"
+        allow="accelerated-download; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="comp-meta">
+      <div class="role">original song · science day</div>
+      <h3>Nil Ahasa Sara</h3>
+      <div class="where">Taxila Central College · Sri Lanka · 2009</div>
+      <p>
+        An original composition written for the school science day. The whole song came
+        together over a handful of nights — MIDI sequenced and arranged the first night,
+        vocals recorded segment-by-segment the next day, mixed into the main track the
+        day after, and a lip-sync video shot on the last.
+      </p>
+      <p>
+        Composed, MIDI-recorded, mixed, and mastered entirely at home on an old Pentium 4
+        Windows PC paired with a Yamaha PSR-1500 arranger workstation, using
+        Propellerhead Reason and Adobe Audition.
+      </p>
+      <ul class="credits">
+        <li>
+          <span class="credit-role">melody · composition · production</span>
+          <span class="credit-name"><em>Sankha Cooray</em></span>
+        </li>
+        <li>
+          <span class="credit-role">lyrics</span>
+          <span class="credit-name">Wasthsala Lakmali Dayananda</span>
+        </li>
+        <li>
+          <span class="credit-role">vocals</span>
+          <span class="credit-name">Chathura Jayasankha &amp; Thrikala Dharani</span>
+        </li>
+        <li>
+          <span class="credit-role">mixing · midi recording · mastering</span>
+          <span class="credit-name"><em>Sankha Cooray</em></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ─── STUDIO ──────────────────────────────────────────── -->
 <section class="section" id="studio">
   <div class="section-head">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2>In the Studio</h2>
   </div>
 
@@ -671,7 +844,7 @@ footer .links a:hover { color: var(--text); }
 <!-- ─── RESEARCH ────────────────────────────────────────── -->
 <section class="section" id="research">
   <div class="section-head">
-    <span class="section-num">05</span>
+    <span class="section-num">06</span>
     <h2>Music × HCI</h2>
     <span class="tag cool">ongoing</span>
   </div>
@@ -719,5 +892,6 @@ footer .links a:hover { color: var(--text); }
   </div>
 </footer>
 
+<script async src="https://sankhacooray.com/js/sankha-analytics.js"></script>
 </body>
 </html>
